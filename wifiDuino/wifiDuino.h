@@ -12,18 +12,45 @@
 #define WIFI_MODE_AP_SERVER 0
 #define WIFI_MODE_ADAPTER_SERVER 1
 #define WIFI_MODE_ADAPTER_CLIENT 2
+#define DHCP_ENABLE 1
+#define DHCP_DISABLE 0
+
+#define EXIT_SERIAL_PIN 12
 
 #include "Arduino.h"
 
 
-class wifiDuino
+static class wifiDuino
 {
-  private:
-    int DEBUG;
-    int _mode;
   public:
-    wifiDuino(uint8_t mode, uint8_t debug_flag = 1);
-    void changMode(uint8_t mode);
-};
+    static uint8_t DEBUG;
+    static uint8_t MODE;
+    static uint8_t DHCP;
+    static char ip[16]; 
+    static char netmask[16]; 
+    static char gateway[16]; 
+    static char remoteDomain[30]; 
+    static char remotePort[5]; 
+    static char localPort[5]; 
+    static char uartConfig[15];
+    
+    static void begin();
+    static void enterATMode();
+    static void enterSerialMode();
+    static void writeAPMode();
+    static void writeCardMode();
+    static void writeDHCP();    
+    static void writeClientMode();
+    static void writeServerMode();
+    static void writeLocalIP();
+    static void writeLocalPort();
+    static void writeRemoteDomain();
+    static void writeRemotePort();
+    static void writeUartConfig();    
+    static void Commit();    
+    
+    static void getMAC(char* MAC);  
+    
+}wifiDuino;
 
 #endif
