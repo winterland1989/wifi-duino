@@ -33,6 +33,9 @@ static class wifiDuino
     static char remotePort[5]; 
     static char localPort[5]; 
     static char uartConfig[15];
+    static char wifiSSID[32];
+    static char wifiEncrypt[15];
+    static char wifiPassword[32];
     
     static void begin();
     static void enterATMode();
@@ -40,6 +43,7 @@ static class wifiDuino
     static void writeAPMode();
     static void writeCardMode();
     static void writeDHCP();    
+    static void writeWifiConfig();   
     static void writeClientMode();
     static void writeServerMode();
     static void writeLocalIP();
@@ -47,7 +51,8 @@ static class wifiDuino
     static void writeRemoteDomain();
     static void writeRemotePort();
     static void writeUartConfig();    
-    static void Commit();    
+    static void commit();    
+    static void waitACK();    
     
     static void getMAC(char* MAC);  
     
