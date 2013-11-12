@@ -1,4 +1,4 @@
-WIFI-DUINO
+wifi-duino
 ==========
 
 This is an Arduino library for the wifi-duino board:(http://winterland.duapp.com/wifi-duino/)
